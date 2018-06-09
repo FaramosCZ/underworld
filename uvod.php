@@ -1,5 +1,6 @@
 <?php include "php_lib/common_functions.php"; ?>
 
+<?php ## test GitHub ## ?>
 
 <!doctype html>
 <html>
