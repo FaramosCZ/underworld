@@ -21,7 +21,7 @@
 
 
   
-  <div id="obsah" class="netopyr">
+  <div id="obsah">
     <?php page_from_get(); ?>
   </div>  
 
