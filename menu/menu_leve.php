@@ -1,4 +1,4 @@
-<div class="menu_nadpis netopyr">&nbsp;<br /><br /></div>
+<a href="?"><img src=obrazky/vamp_red_mensi.png style="width:100%" /></a>
 
 <a class="menu_a" href="?page=Verejny_01_uvodni_text" title="Úvod">Úvod</a>
 <a class="menu_a" href="?page=Pribehy_sluzebnictva_01_cisnik" title="Příběhy">Příběhy</a>
