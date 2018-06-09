@@ -1,0 +1,227 @@
+/* ====================================== */ 
+/* ======= VÝCHOZÍ NASTAVENÍ TAGŮ ======= */ 
+/* ====================================== */ 
+
+/* Pozadí stránky */
+body
+  {
+   background-color: black;
+   /* Nastavení  červených scrollbarů pro iExplorer */
+   scrollbar-base-color: Maroon;
+   scrollbar-track-color: Maroon;
+
+   padding: 1vh 0vw 0vh 0vw;
+   margin: 0;
+
+   display: flex;
+   justify-content: center;
+   flex-flow: row wrap;
+   align-items: stretch;
+  }
+
+/* Barvy tlačítek */
+a:link, a:visited, a:active, a:hover
+  {
+   color:gold; 
+   text-decoration: none;
+  }
+a:active, a:hover
+  {
+   text-decoration: underline;
+  }
+
+/* Formátování nadpisů: */
+h1
+  {
+   color: gold;
+   font-style: italic;
+   font-family: garamond, cursive, sans-serif;
+  }       
+
+
+/* ====================================== */ 
+/* ============= DEBUGOVÁNÍ ============= */ 
+/* ====================================== */ 
+ /*
+div
+  {
+   border: 1px solid blue;
+  }
+
+
+/* ============================================ */ 
+/* = ODMAZÁNÍ OBSAHU VLOŽENÉHO POSKYTOVATELEM = */ 
+/* ============================================ */ 
+
+div .trop,
+div .eq
+  {
+   display: none;
+  }
+
+
+/* ====================================== */ 
+/* =============== TŘÍDY ================ */ 
+/* ====================================== */ 
+
+/* Nastavení úzkých scrollbarů pro Chrome:*/ 
+.red-customized-scrollbar::-webkit-scrollbar
+  {
+   width: 5px;
+   height: 8px;
+   background-color: Maroon;
+  }
+.red-customized-scrollbar::-webkit-scrollbar-thumb
+  {
+   background: red; 
+  }
+.black-customized-scrollbar::-webkit-scrollbar
+  {
+   width: 5px;
+   height: 8px;
+   background-color: #303030;
+  }
+.black-customized-scrollbar::-webkit-scrollbar-thumb
+  {
+   background: DimGray; 
+  }
+
+
+
+.netopyr
+  {
+   background-image: url("../obrazky/vamp_red_mensi.png");
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   background-size: contain;
+  }
+
+/* ====================================== */ 
+/* ===== Základní rozložení stránky ===== */ 
+/* ====================================== */ 
+           
+  #leve_menu, 
+  #prave_menu,
+  #obsah  
+    {
+      background-color: Maroon  /* rgb(84,0,0) */ ;
+      color: gold;
+      flex: 1;
+      box-sizing: border-box; 
+      height: 87vh;
+      text-overflow: clip;
+      word-wrap: break-word;
+      font-size: 120%;
+    }
+
+  #leve_menu, 
+  #prave_menu
+    {
+     max-width: 13vw;
+    }
+  #prave_menu
+    {
+     display: flex;
+     align-items: center;
+    }
+
+  #obsah
+    {
+     background-color: black;
+     max-width: 70vw;
+     overflow-x: hidden;
+     overflow-y: auto;
+     padding: 1vh 1vw 1vh 1vw;
+    }
+
+  #paticka 
+    {
+     position: fixed;
+     bottom: 1vh;
+     height: 10vh;
+     width: 96vw;
+     margin-left: auto;
+     margin-right: auto;
+     background-color: rgb(50,0,0);
+    }
+
+/* ====================================== */ 
+/* ================ MENU ================ */ 
+/* ====================================== */ 
+
+.menu_nadpis /* logo netopyra */ 
+  {
+   font-weight: bold;
+   text-align: center;
+   margin-top: 2vh;
+   margin-bottom: 2vh;
+
+   color: GoldenRod;
+   text-transform: uppercase;
+   font-size: 300%;
+  }
+
+.menu_a, .menu_login
+  {
+   display: block;
+   font-weight: bold;
+   margin-top: 1vh;
+   margin-bottom: 1vh;
+   padding: 1vh 5px 1vh 5px;
+   background-color: rgb(150,0,0);
+   transition: 0.3s background-color;
+
+   font-size: 125%;   
+  }
+.menu_a:hover, .menu_login:hover
+  {
+   background-color: rgb(200,0,0);
+  }
+
+.menu_login
+  {
+   border: 2px solid GoldenRod;
+   background-color: black;
+  }
+.menu_login:hover
+  {
+   background-color: rgb(60,60,60);
+  }
+
+.menu_nadpis_pravy
+  {
+   visibility: hidden;
+  }
+
+.menu_vertical_spacer
+  {
+   flex: 1;
+  }
+
+/* ====================================== */ 
+/* =============== ZBYTEK =============== */ 
+/* ====================================== */ 
+
+           
+      #hlavicka {background-color: black; color: gold; position: fixed; width: calc(100% - 330px); top: 0px; height: 120px; left: 185px; text-align: center;z-index: +10; }
+      #levy_horni_obrazek {background-color: black ; color: gold; position: fixed; width: 150px; top: 3px; left: 10px; height: 100px; z-index: +10; overflow: hidden;}
+      #pravy_horni_obrazek {background-color: black ; color: gold; position: fixed; width: 100px; top: 3px; left: calc(100% - 124px);height: 100px; z-index: +10; overflow: hidden;}
+      #levy {background-color: Maroon  /* rgb(84,0,0) */ ; color: gold; position: fixed; width: 150px; top: 120px; left: 10px; height: calc(100% - 220px); z-index: +10; overflow-x: hidden; overflow-y: auto;}
+      #prostredni {color: WhiteSmoke;position: fixed; width: calc(100% - 330px); height: calc(100% - 200px);top: 120px; left: 185px; z-index: +10; overflow-y: auto;}
+      #pravy {background-color: grey; color: WhiteSmoke; position: fixed; width: 100; height: calc(100% - 200px); top: 120px ; left: calc(100% - 124px); z-index: +10;}
+      #paticka_0_jmeno {color: gold; position: absolute; left: 20px; top: 10px; width: 20px; height: 20px;}
+      #paticka_1_symbol {background-color: black; color: white; position: absolute; left: 110px; top: 10px; width: 20px; height: 20px;}
+      #paticka_1_hodnota {background-color: black; color: white; position: absolute;  left: 150px; top: 10px; width: 100px; height: 20px;}
+      #paticka_2_symbol {background-color: black; color: white; position: absolute;  left: 290px; top: 10px; width: 20px; height: 20px;}
+      #paticka_2_hodnota {background-color: black; color: white; position: absolute; left: 330px; top: 10px; width: 100px; height: 20px;}
+
+      #vertical_center {text-align: center; vertical-align: middle;}
+    
+      /*Specifika pro uvodni stranku s tlacitky "prihlas se" a "registruj se": */
+      #paticka_uvod_left_button {border: 3px solid gold; background-color: black; color: gold; position: absolute; left: calc(100%/2 - 200px); top: 10px; width: 150px; height: 20px; text-align: center;}
+      #paticka_uvod_right_button {border: 3px solid gold; background-color: black; color: gold; position: absolute; left: calc(100%/2 + 50px); top: 10px; width: 150px; height: 20px; text-align: center;}
+ 
+       /*Specifika pro stranku pro hráče s tlacitky na výběr postav: */
+      #postava_button {border: 3px solid gold; background-color: black; color: gold; position: relative; left: 0px; top: 0px; width: 70px; height: 70px; text-align: center;}
+     
+
