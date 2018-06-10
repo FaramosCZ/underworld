@@ -1,6 +1,5 @@
+<a href="?"><img src=obrazky/vamp_red_mensi.png style="width:100%" /></a>
 
-<div class="menu_vertical_spacer">
-<a class="menu_login" href="?page=logout">Odhlásit</a>
-</div>
+<a class="menu_a" href="?page=logout">Odhlásit</a>
 
 
