@@ -1,3 +1,5 @@
+<a href="?"><img src=obrazky/vamp_red_mensi.png style="width:100%" /></a>
+
 <?php
 if( session_id() )
   {
