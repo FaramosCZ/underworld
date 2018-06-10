@@ -119,11 +119,6 @@ div .eq
     {
      max-width: 13vw;
     }
-  #prave_menu
-    {
-     display: flex;
-     align-items: center;
-    }
 
   #obsah
     {
@@ -161,7 +156,7 @@ div .eq
    font-size: 300%;
   }
 
-.menu_a, .menu_login
+.menu_a
   {
    display: block;
    font-weight: bold;
@@ -173,19 +168,9 @@ div .eq
 
    font-size: 125%;   
   }
-.menu_a:hover, .menu_login:hover
+.menu_a:hover
   {
    background-color: rgb(200,0,0);
-  }
-
-.menu_login
-  {
-   border: 2px solid GoldenRod;
-   background-color: black;
-  }
-.menu_login:hover
-  {
-   background-color: rgb(60,60,60);
   }
 
 .menu_nadpis_pravy
