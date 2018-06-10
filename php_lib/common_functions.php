@@ -9,14 +9,24 @@ function page_from_get()
    {
     // Zachovám alespoň podrtržítko - původně $mypage=eregi_replace('[^0-9a-z\-\_]', '', $_GET['page']);
     $mypage = preg_replace('[^0-9a-z\-]', '', $_GET['page']);
-    $mypage_fullpath = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . 'texty' . DIRECTORY_SEPARATOR . $mypage . '.php';
 
-    if( file_exists($mypage_fullpath) )
+    $directories[]="texty";
+    $directories[]="php_lib";
+    $fileexist = false;
+    
+    foreach ($directories as &$directory)
       {
-       require $mypage_fullpath;
+       $mypage_fullpath = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . $directory . DIRECTORY_SEPARATOR . $mypage . '.php';
+       if( file_exists($mypage_fullpath) )
+         {
+          require $mypage_fullpath;
+          $fileexist = true;
+          break;
+         }
       }
-    else
-      {
+      
+    if (false == $fileexist)
+      {  
        // Případné zaznamenání chyb
        error_log("This file doesn't exist: $mypage\n", 3, FILE_ERROR);
        echo 'ERROR 404: Stránka ' . $mypage . ' neexistuje.';
