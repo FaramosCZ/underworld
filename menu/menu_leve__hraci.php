@@ -1,11 +1,8 @@
-<div id="vertical_center">
- <p>Pro hráče:</p>
-</div> <hr>
+<a href="?"><img src=obrazky/vamp_red_mensi.png style="width:100%" /></a>
 
-<hr>
-                                                                             
- <a href="http://underworld.clanweb.eu/hra/hraci.php?page=Hraci_02_co_te_ceka" title="Co Tě čeká">Co Tě čeká</a><hr>
- <a href="http://underworld.clanweb.eu/hra/hraci.php?page=Hraci_02_pravidla_hry" title="Pravida hry">Pravidla hry</a><hr>
- <a href="http://underworld.clanweb.eu/hra/hraci.php?page=Hraci_02_terminy_akci" title="Termíny akcí">Termíny akcí</a><hr>
- <a href="http://underworld.clanweb.eu/hra/hraci.php?page=Hraci_02_organizatori" title="Organizátoři">Organizátoři</a><hr>
- <a href="?page=logout" title="Odhlásit se"><br>Odhlásit se</a><hr>
+<a class="menu_a" href="?page=Hraci_02_co_te_ceka" title="Co Tě čeká">Co Tě čeká</a>
+<a class="menu_a" href="?page=Hraci_02_pravidla_hry" title="Pravida hry">Pravidla hry</a>
+<a class="menu_a" href="?page=Hraci_02_terminy_akci" title="Termíny akcí">Termíny akcí</a>
+<a class="menu_a" href="?page=Hraci_02_organizatori" title="Organizátoři">Organizátoři</a>
+<br /><br /><br />
+<a class="menu_a" href="?page=logout" title="Jak se zapojit">Odhlásit se</a>
