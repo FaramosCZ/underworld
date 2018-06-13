@@ -175,6 +175,7 @@ div .eq
    padding: 1vh 5px 1vh 5px;
    background-color: rgb(150,0,0);
    transition: 0.3s background-color;
+   cursor: pointer;
 
    font-size: 125%;   
   }
