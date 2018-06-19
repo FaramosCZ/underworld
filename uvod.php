@@ -1,13 +1,6 @@
 <?php 
   session_start();
-  if (!isset($_SESSION[`level_menu`])) {$_SESSION['level_menu'] = "uvod";}
-  if ($_POST["login"] == "login") {$_SESSION['level_menu'] = "hraci";}
-  if ($_POST["signup"] == "signup") {$_SESSION['level_menu'] = "hraci";}
-  if ($_POST["logout"] == "logout") 
-    {
-     session_destroy(); 
-     $_SESSION['level_menu'] = "uvod";
-    }
+  if (!isset($_SESSION['level_menu'])) {$_SESSION['level_menu'] = "uvod";}
 ?>
 <?php                                                                            
   header(`Expires: Mon, 26 Jul 1997 05:00:00 GMT`);
