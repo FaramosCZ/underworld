@@ -1,12 +1,12 @@
 <?php 
   session_start();
-  if (!isset($_SESSION[`level_menu`])) {$_SESSION[`level_menu`] = "uvod";}
-  if ($_POST["login"] == "login") {$_SESSION[`level_menu`] = "hraci";}
-  if ($_POST["signup"] == "signup") {$_SESSION[`level_menu`] = "hraci";}
+  if (!isset($_SESSION[`level_menu`])) {$_SESSION['level_menu'] = "uvod";}
+  if ($_POST["login"] == "login") {$_SESSION['level_menu'] = "hraci";}
+  if ($_POST["signup"] == "signup") {$_SESSION['level_menu'] = "hraci";}
   if ($_POST["logout"] == "logout") 
     {
      session_destroy(); 
-     $_SESSION[`level_menu`] = "uvod";
+     $_SESSION['level_menu'] = "uvod";
     }
 ?>
 <?php                                                                            
@@ -33,11 +33,11 @@
 
   <div id="leve_menu">
     <?php 
-      switch ($_SESSION[`level_menu`])
+      switch ($_SESSION['level_menu'])
         {
          case "uvod": include "menu/menu_leve__verejne.php"; break; 
          case "hraci": include "menu/menu_leve__hraci.php"; break; 
-         default: echo ("error of level_menu level=\"".$_SESSION[`level_menu`]."\""); 
+         default: echo ("error of level_menu level=\"".$_SESSION['level_menu']."\""); 
         }
     ?>
   </div>  
@@ -52,11 +52,11 @@
 
   <div id="prave_menu">
     <?php 
-      switch ($_SESSION[`level_menu`]) 
+      switch ($_SESSION['level_menu']) 
         {
          case "uvod": include "menu/menu_prave__verejne.php"; break;
          case "hraci": include "menu/menu_prave__hraci.php"; break; 
-         default: echo ("error of level_menu level=\"".$_SESSION[`level_menu`]."\""); 
+         default: echo ("error of level_menu level=\"".$_SESSION['level_menu']."\""); 
         }
     ?>
   </div>  
@@ -65,11 +65,11 @@
 
   <div id="paticka">
     <?php 
-      switch ($_SESSION[`level_menu`]) 
+      switch ($_SESSION['level_menu']) 
         {
          case "uvod": include "menu/menu_paticka__verejne.php"; break;
          case "hraci": include "menu/menu_paticka__hraci.php"; break; 
-         default: echo ("error of level_menu level=\"".$_SESSION[`level_menu`]."\""); 
+         default: echo ("error of level_menu level=\"".$_SESSION['level_menu']."\""); 
         }
     ?>
   </div>  
