@@ -1,13 +1,19 @@
-login...
-
 <?php
-$_SESSION[`level_menu`] = "hraci";
-// Start the session
-//session_start();
 
-// Set session variables
-//$_SESSION["user"] = "faramos";
+include 'php_lib/objects/player.php';
+$hrac = new player;
+echo $hrac->test."<br />";
+// $hrac->test();
 
-//header('Location: http://underworld.clanweb.eu/hra_vyvoj_faramos/');
-header('Location: ?');
+if ($hrac->login("Jarik","mojeheslo"))
+  {
+   // nastavení sessions pro násludující ověřování, že je uživatel přihlášený;
+    echo "session level je: ". $_SESSION['level_menu'];
+
+//   header('Location: ?');
+  }
+  else
+  {
+   echo "Neplatný login nebo heslo.";
+  }
 ?>
