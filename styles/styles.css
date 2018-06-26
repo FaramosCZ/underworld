@@ -1,0 +1,211 @@
+/* ====================================== */ 
+/* ======= VÝCHOZÍ NASTAVENÍ TAGŮ ======= */ 
+/* ====================================== */ 
+
+/* Pozadí stránky */
+body
+  {
+   background-color: black;
+   /* Nastavení  červených scrollbarů pro iExplorer */
+   scrollbar-base-color: Maroon;
+   scrollbar-track-color: Maroon;
+
+   padding: 1vh 0vw 0vh 0vw;
+   margin: 0;
+
+   display: flex;
+   justify-content: center;
+   flex-flow: row wrap;
+   align-items: stretch;
+  }
+
+/* Barvy tlačítek */
+a:link, a:visited, a:active, a:hover
+  {
+   color:gold; 
+   text-decoration: none;
+  }
+a:active, a:hover
+  {
+   text-decoration: underline;
+  }
+
+/* Formátování nadpisů: */
+h1
+  {
+   color: gold;
+   font-style: italic;
+   font-family: garamond, cursive, sans-serif;
+  }       
+
+
+/* ====================================== */ 
+/* ============= DEBUGOVÁNÍ ============= */ 
+/* ====================================== */ 
+ /*
+div
+  {
+   border: 1px solid blue;
+  }
+
+
+/* ============================================ */ 
+/* = ODMAZÁNÍ OBSAHU VLOŽENÉHO POSKYTOVATELEM = */ 
+/* ============================================ */ 
+
+div .trop,
+div .eq
+  {
+   display: none;
+  }
+
+
+/* ====================================== */ 
+/* =============== TŘÍDY ================ */ 
+/* ====================================== */ 
+
+/* Nastavení úzkých scrollbarů pro Chrome:*/ 
+.red-customized-scrollbar::-webkit-scrollbar
+  {
+   width: 5px;
+   height: 8px;
+   background-color: Maroon;
+  }
+.red-customized-scrollbar::-webkit-scrollbar-thumb
+  {
+   background: red; 
+  }
+.black-customized-scrollbar::-webkit-scrollbar
+  {
+   width: 5px;
+   height: 8px;
+   background-color: #303030;
+  }
+.black-customized-scrollbar::-webkit-scrollbar-thumb
+  {
+   background: DimGray; 
+  }
+
+
+
+.netopyr
+  {
+   background-image: url("../obrazky/vamp_red_mensi.png");
+   background-repeat: no-repeat;
+   background-position: 50% 50%;
+   background-size: contain;
+  }
+
+/* ====================================== */ 
+/* ===== Základní rozložení stránky ===== */ 
+/* ====================================== */ 
+           
+#leve_menu, 
+#prave_menu,
+#obsah  
+  {
+   background-color: Maroon;  /* rgb(84,0,0) */ 
+   color: gold;
+   flex: 1;
+   box-sizing: border-box; 
+   height: 98vh;              /* výška bez patičky */
+   text-overflow: clip;
+   word-wrap: break-word;
+   font-size: 120%;
+  }
+
+#leve_menu, 
+#prave_menu
+  {
+   max-width: 13vw;
+  }
+
+#obsah
+  {
+   background-color: black;
+   max-width: 70vw;
+   overflow-x: hidden;
+   overflow-y: auto;
+   padding: 1vh 1vw 1vh 1vw;
+  }
+
+/* ====================================== */ 
+/* ================ MENU ================ */ 
+/* ====================================== */ 
+
+/* ----------- položky menu ----------- */ 
+
+.menu_a
+  {
+   display: block;
+   font-weight: bold;
+   margin-top: 1vh;
+   margin-bottom: 1vh;
+   padding: 1vh 5px 1vh 5px;
+   background-color: rgb(150,0,0);
+   transition: 0.3s background-color;
+   cursor: pointer;
+
+   font-size: 125%;   
+  }
+.menu_a:hover
+  {
+   background-color: rgb(200,0,0);
+  }
+
+/* ----------- login & register form ----------- */ 
+
+.form_login
+  {
+   background-color: rgb(150,0,0);
+   transition: background-color 0.3s linear;
+   margin-bottom: 1vh;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  }
+.form_login:hover
+  {
+   background-color: rgb(200,0,0);
+   padding-top: 10px;
+   padding-bottom: 10px;
+  }
+
+.form_login:hover input
+  {
+   display: block;
+  }
+
+.form_login input
+  {
+   background-color: Maroon;
+   color: yellow;
+
+   width: 95%;
+   padding: 6px 10px;
+   margin: 8px 0;
+   box-sizing: border-box;
+
+   border-radius: 1px;
+   font-size:100%;
+   font-weight: bold;
+
+   display: none;
+  }
+.form_login input[type=submit] 
+  {
+   background-color: rgb(110,0,0);
+   color: Gold;
+   font-size: 125%;
+   font-family: times;
+
+   display: block;
+   order: 10;
+  }
+
+/* ====================================== */ 
+/* =============== ZBYTEK =============== */ 
+/* ====================================== */ 
+
+
