@@ -2,7 +2,6 @@
 
 include 'php_lib/objects/player.php';
 $hrac = new player;
-echo $hrac->test."<br />";
 // $hrac->test();
 if(isset($_POST["login"]) and isset($_POST["password"]))                  
   {
