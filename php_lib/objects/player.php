@@ -1,7 +1,7 @@
 <?php
 
-include 'database.php';
-//include 'php_lib/objects/database.php';
+include 'php_lib/objects/database.php';
+//include 'database.php';
 
 class player
 {
@@ -28,7 +28,6 @@ public function test()
    echo "test player je ok!<br />";
    return true;
   }
-  
 
 public function login($login,$password)
   {
@@ -45,6 +44,23 @@ public function login($login,$password)
    {
     return false;    
    }
+  }
+
+public function register_new_player($email,$nick,$password)
+  {
+  // kontrola jmena, hesla
+  $nick = $this->db->text_check(strtolower($nick));
+  //$this->db->text_check($nick);
+  $password = $this->db->text_check($password);
+  // kontrola emailu
+  $email = $this->db->text_check(strtolower($email));
+
+  echo "<br />register_new_player: ".$email.", ".$nick.", ".$password."<br />";
+
+  // uložení do databáze
+  $res = $this->db->insert_new_player($email,$nick,$password);
+
+  return $res;
   }
 }
 
