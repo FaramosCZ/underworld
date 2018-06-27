@@ -1,4 +1,8 @@
 <?php 
+/*
+  $_SESSION['level_menu'] -- úrověň prohlížení webu: uvod, hraci, postava
+  $_SESSION['upir'] -- informace, zda postava je upírem: true,false
+*/
   session_start();
   if (!isset($_SESSION['level_menu'])) {$_SESSION['level_menu'] = "uvod";}
 ?>
