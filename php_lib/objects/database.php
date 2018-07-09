@@ -49,7 +49,7 @@ public function text_check($input_text)
    }
   }
  
-
+// slouží pro přihlašování
 public function verify_player($login,$password)
   {
    if ($this->conn->connect_errno) 
@@ -74,50 +74,104 @@ public function verify_player($login,$password)
         return false;
        }
   }
- 
+
+// registrace - proběhnou všechny automatické kontroly a následně je hráč uložen do tabulky nových hráčů 
 public function insert_new_player($email,$nick,$password)
   {
     // kontrola, zda už není přihlašovací jméno použité v tabulce potvrzených hráčů
    $res = $this->conn->query("SELECT `id`,`nick`,`email`  FROM `players` WHERE `nick`='" . $nick . "' OR `email`='" . $email  . "'");
-   echo "<br /> počet nalezených výskytů: " . $res->num_rows . "<br />";
+//   echo "<br /> počet nalezených výskytů: " . $res->num_rows . "<br />";
    if ($res->num_rows > 0)
      {
       $res_hrac = $res->fetch_assoc();
       $res->free_result();
       if ($email == $res_hrac["email"])
-        {exit ("Hráč s tímto emailem je již registrovaný");}
+        {return "Hráč s tímto emailem je již registrovaný";}
       if ($nick == $res_hrac["nick"])
-        {exit ("Hráč s tímto loginem je již registrovaný");}
-     exit ("Hráč je již registrovaný");
+        {return "Hráč s tímto loginem je již registrovaný";}
+     return "Hráč je již registrovaný";
      }
 
     // kontrola, zda už není přihlašovací jméno použité v tabulce NOVÝCH hráčů
    $res = $this->conn->query("SELECT `id`,`nick`,`email`  FROM `players_new` WHERE `nick`='" . $nick . "' OR `email`='" . $email  . "'");
-   echo "<br /> počet nalezených výskytů: " . $res->num_rows . "<br />";
+//   echo "<br /> počet nalezených výskytů: " . $res->num_rows . "<br />";
    if ($res->num_rows > 0)
      {
       $res_hrac = $res->fetch_assoc();
       $res->free_result();
       if ($email == $res_hrac["email"])
-        {exit ("Hráč s tímto emailem je již registrovaný");}
+        {return "Hráč s tímto emailem je již registrovaný";}
       if ($nick == $res_hrac["nick"])
-        {exit ("Hráč s tímto loginem je již registrovaný");}
-     exit ("Hráč je již registrovaný");
+        {return "Hráč s tímto loginem je již registrovaný";}
+//     exit ("Hráč je již registrovaný");
+    return "Hráč je již registrovaný";
      }
 
    // insert into database:
-   $sql = "INSERT INTO `players_new` (id, nick, email, password) VALUES (0, '" . $nick . "', '" . $email . "', '" . $password . "')";
+   $sql = "INSERT INTO `players_new` (nick, email, password) VALUES ('" . $nick . "', '" . $email . "', '" . $password . "')";
    $res = $this->conn->query($sql);
      
    if ($this->conn->connect_errno) 
     {
-     die("Database connection failed.");
+     return "Database connection failed.";
     }
-
-    $res = $this->conn->query("SELECT `id`,`nick` FROM `players` WHERE `nick`='" . $login . "' OR `email`='" . $login . "' AND `password`='" . $password . "'");
-
-        return $res;
+    return "Údaje uloženy.";
   }
+
+//vložení prověřených údajů z tabulky nových hráčů do tabulky hrajících (aktivních a potvrzených)
+public function insert_player($email,$nick,$password)
+  {
+   // insert into database:
+   $sql = "INSERT INTO `players` (nick, email, password) VALUES ('" . $nick . "', '" . $email . "', '" . $password . "')";
+   $res = $this->conn->query($sql);
+   if ($this->conn->connect_errno) 
+    {
+     return "Database connection failed.";
+    }
+    return "Údaje uloženy.";
+  }
+
+//kompletní výpis tabulky nově zaregistrovaných hráčů  
+public function new_players_list()
+  {
+    $res = $this->conn->query("SELECT `id`,`nick`,`email` FROM `players_new`");
+    while ($row = $res->fetch_assoc()) 
+     {
+      $rest_list[] = $row;
+     }
+    $res->free_result();
+    return $rest_list;
+  }  
+
+//kompletní výpis tabulky aktivních hráčů  
+public function players_list()
+  {
+    $res = $this->conn->query("SELECT `id`,`nick`,`email` FROM `players`");
+    while ($row = $res->fetch_assoc()) 
+     {
+      $rest_list[] = $row;
+     }
+    $res->free_result();
+    return $rest_list;
+  }  
+
+//vyhledání údajů o nově registrovaném hráči
+public function get_player_new($id)
+  {
+    $res = $this->conn->query("SELECT `id`,`nick`,`email`,`password` FROM `players_new` WHERE `id`='" . $id . "'");
+    while ($row = $res->fetch_assoc()) 
+     {
+      $result = $row;
+     }
+    $res->free_result();
+    return $result;
+  } 
+  
+//vymazání nově registrovaného hráče
+public function delete_player_new($id)
+  {
+    $this->conn->query("DELETE FROM `players_new` WHERE `id`='" . $id . "' LIMIT 1");
+  } 
   
 } 
 
