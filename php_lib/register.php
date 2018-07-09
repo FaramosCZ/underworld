@@ -1,5 +1,4 @@
 <?php
-
 include 'php_lib/objects/player.php';
 
 $hrac = new player;
@@ -8,9 +7,10 @@ $hrac = new player;
 
 $res = $hrac->register_new_player($_POST["email"],$_POST["login"],$_POST["password"]);
 
-  if (true == $res) {echo "Registrace proběhla úspěšně. Byl Ti zaslán email.";}
-  if ($res == false) {echo "Chyba při ukládání do databáze. Zkontrolujte vložené údaje.";}
-  if ($res != true) {echo $res;}
+echo $res;
+//  if (true == $res) {echo "Registrace proběhla úspěšně. Byl Ti zaslán email.";}
+//  if ($res == false) {echo "Chyba při ukládání do databáze. Zkontrolujte vložené údaje.";}
+//  if ($res != true) {echo $res;}
   
 
 
