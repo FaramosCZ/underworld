@@ -6,7 +6,7 @@ private $conn;
 // metoda pro připojení k databázi
 protected function db_connect()      
   {
-   include "../_pristupy/databaze.php";
+   include "_pristupy/databaze.php";
    $this->conn = new mysqli($db_servername, $db_username, $db_password, $db_dbname);
    
    // check connection 
@@ -20,7 +20,7 @@ protected function db_connect()
 
 public function __construct()
   {
-    $this->db_connect();
+   $this->db_connect();
    return true;
   }
  
@@ -133,7 +133,8 @@ public function insert_player($email,$nick,$password)
 
 //kompletní výpis tabulky nově zaregistrovaných hráčů  
 public function new_players_list()
-  {
+  { 
+    $rest_list = null;
     $res = $this->conn->query("SELECT `id`,`nick`,`email` FROM `players_new`");
     while ($row = $res->fetch_assoc()) 
      {
@@ -146,6 +147,7 @@ public function new_players_list()
 //kompletní výpis tabulky aktivních hráčů  
 public function players_list()
   {
+    $rest_list = null;
     $res = $this->conn->query("SELECT `id`,`nick`,`email` FROM `players`");
     while ($row = $res->fetch_assoc()) 
      {

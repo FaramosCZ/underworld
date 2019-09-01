@@ -1,7 +1,7 @@
 <?php
 
-include 'php_lib/objects/database.php';
-//include 'database.php';
+//include 'php_lib/objects/database.php';
+include 'database.php';
 
 class player
 {
@@ -64,7 +64,7 @@ public function register_new_player($email,$nick,$password)
 public function list_of_new_players()
   {
   $players_list = $this->db->new_players_list();
-  foreach ($players_list as $player)
+  if ($players_list != null) foreach ($players_list as $player)
    {
     echo '<form action="?page=approve_new_player" method="post" name="approve_form">';
     echo $player["id"];
@@ -81,7 +81,7 @@ public function list_of_new_players()
 public function list_of_players()
   {
   $players_list = $this->db->players_list();
-  foreach ($players_list as $player)
+  if ($players_list != null) foreach ($players_list as $player)
    {
     echo $player["id"];
     echo "&nbsp;&nbsp;&nbsp;";
