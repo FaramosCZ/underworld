@@ -1,7 +1,8 @@
 <?php
 
-// Funkce, která do prostředního sloupce vloží text. 
+// Funkce, která do prostředního sloupce vloží text.
 // Pokud je zadaná hodnota $_GET['page'], tak ji vyčistí od nebezpečných znaků a pokusí se najít odkazovanou stránku.
+// Ověří zda stránka v povolených adresářích existuje, jinak skončí chybou. #bezpečnost
 function page_from_get() 
 {
  // Test zda je zadána hodnota v $_GET['page']
@@ -12,6 +13,8 @@ function page_from_get()
 
     $directories[]="texty";
     $directories[]="php_lib";
+    $directories[]="php_lib/character";
+    $directories[]="php_lib/player";
     $fileexist = false;
     
     foreach ($directories as &$directory)

@@ -1,18 +1,32 @@
 <?php 
 /*
-  $_SESSION['level_menu'] -- úrověň prohlížení webu: uvod, hraci, postava
+  $_SESSION['level_menu'] -- úrověň prohlížení webu: uvod, hraci, postavy
   $_SESSION['upir'] -- informace, zda postava je upírem: true,false
+  $_SESSION['player_id'] -- id hráče (po přihlášení)
+  
 */
   session_start();
   if (!isset($_SESSION['level_menu'])) {$_SESSION['level_menu'] = "uvod";}
 ?>
-<?php                                                                            
-  header(`Expires: Mon, 26 Jul 1997 05:00:00 GMT`);
-  header(`Last-Modified: `.gmdate(`D, d M Y H:i:s`).` GMT`);
-  header(`Cache-Control: no-cache, must-revalidate`);
-  header(`Pragma: no-cache`);
+<?php 
+  require_once "php_lib/common_functions.php";
+  require_once "php_lib/objects/player.php";
+  require_once "php_lib/objects/character.php";
+
+  // natažení aktuálních informací o hráči z databáze
+  $player = new player;
+  if (isset($_SESSION['player_id'])) 
+    {
+    $player->load_player($_SESSION['player_id']);	
+    }
+
+  if ($player->current_character_id != null)
+    {
+    $character = new character;
+    $character->load_character($player->current_character_id);
+    }
+  
 ?>
-<?php include "php_lib/common_functions.php"; ?>
 
 <!doctype html>
 <html>
@@ -27,13 +41,13 @@
 <body>
 
 
-
   <div id="leve_menu">
     <?php 
       switch ($_SESSION['level_menu'])
         {
          case "uvod": include "menu/menu_leve__verejne.php"; break; 
          case "hraci": include "menu/menu_leve__hraci.php"; break; 
+         case "postavy": include "menu/menu_leve__postavy.php"; break; 
          default: echo ("error of level_menu level=\"".$_SESSION['level_menu']."\""); 
         }
     ?>
@@ -53,6 +67,7 @@
         {
          case "uvod": include "menu/menu_prave__verejne.php"; break;
          case "hraci": include "menu/menu_prave__hraci.php"; break; 
+         case "postavy": include "menu/menu_prave__postavy.php"; break; 
          default: echo ("error of level_menu level=\"".$_SESSION['level_menu']."\""); 
         }
     ?>
@@ -66,11 +81,11 @@
         {
          case "uvod": include "menu/menu_paticka__verejne.php"; break;
          case "hraci": include "menu/menu_paticka__hraci.php"; break; 
+         case "postavy": include "menu/menu_paticka__postavy.php"; break; 
          default: echo ("error of level_menu level=\"".$_SESSION['level_menu']."\""); 
         }
     ?>
   </div>  
-
 
 
 </body>
