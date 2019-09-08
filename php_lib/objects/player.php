@@ -1,7 +1,7 @@
 <?php
 
 //include 'php_lib/objects/database.php';
-include 'database.php';
+require_once 'database.php';
 
 class player
 {
@@ -9,7 +9,8 @@ class player
   public $id;
   public $nick;
   public $email;
- 
+  public $is_admin;
+  public $current_character_id;
   private $db;
 
 public function __construct()
@@ -36,8 +37,7 @@ public function login($login,$password)
    {
     $_SESSION['level_menu'] = "hraci";
     $_SESSION['player_id'] = $hrac_from_db['id'];
-    $_SESSION['player_nick'] = $hrac_from_db['nick'];
-    //return false;
+//    $_SESSION['player_nick'] = $hrac_from_db['nick'];
     return true;
    }
    else
@@ -45,6 +45,27 @@ public function login($login,$password)
     return false;    
    }
   }
+  
+// načtení vlastností hráče z databáze do objektu player
+// (používá se při každém načtení stránky)
+public function load_player($player_id)
+  {
+   $table = 'players';
+   $hrac_from_db = $this->db->table_item($table,$player_id);
+   if (! $hrac_from_db == false) // AND $hrac['id']>= 0 )
+  {
+    $this->id = $hrac_from_db['id'];
+    $this->nick = $hrac_from_db['nick'];
+    $this->email = $hrac_from_db['email'];
+    $this->is_admin = $hrac_from_db['admin'];
+    $this->current_character_id = $hrac_from_db['current_character_id']; 
+    return true;
+   }
+   else
+   {
+    return false;    
+   }
+ }
 
 public function register_new_player($email,$nick,$password)
   {

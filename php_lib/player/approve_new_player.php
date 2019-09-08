@@ -1,6 +1,6 @@
 <?php
-include 'php_lib/objects/player.php';
-if ($_POST["Schválit"]=="Schválit") 
+require_once 'php_lib/objects/player.php';  
+if (isset($_POST["Schválit"]) and ($_POST["Schválit"]=="Schválit")) 
  {
   $hrac = new player;
   $hrac->approve_new_player($_POST["id"]);
