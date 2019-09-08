@@ -1,5 +1,5 @@
 <?php
-include 'objects/player.php';  
+require_once 'php_lib/objects/player.php';  
 ?>
 <p>Noví hráči:</p>
 <?php

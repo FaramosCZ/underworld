@@ -131,6 +131,44 @@ public function insert_player($email,$nick,$password)
     return "Údaje uloženy.";
   }
 
+//kompletní výpis tabulky tabulky zadané parametrem (libovolné tabulky)  
+public function table_list($table)
+  { 
+    $rest_list = null;
+    $res = $this->conn->query("SELECT * FROM `" . $table . "`");
+    while ($row = $res->fetch_assoc()) 
+     {
+      $rest_list[] = $row;
+     }
+    $res->free_result();
+    return $rest_list;
+  }  
+
+//kompletní výpis tabulky tabulky zadané parametrem (libovolné tabulky)  
+public function table_item($table, $id)
+  { 
+    $rest_list = null;
+    $res  = $this->conn->query("SELECT * FROM `" . $table . "` WHERE id = '".$id."'");
+    if ($this->conn->connect_errno) 
+      { 
+      echo "Database connection failed.";
+      return false;
+      }
+    if ($res->num_rows == 1)
+       {
+        $res_item = $res->fetch_assoc();
+        $res->free_result();
+        return $res_item;
+       }
+       else
+       {
+        $res->free_result();
+        return false;
+       }
+      return false;
+  }  
+
+
 //kompletní výpis tabulky nově zaregistrovaných hráčů  
 public function new_players_list()
   { 

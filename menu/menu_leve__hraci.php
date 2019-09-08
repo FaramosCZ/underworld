@@ -7,5 +7,6 @@
 <a class="menu_a" href="?page=Hraci_02_organizatori" title="Organizátoři">Organizátoři</a>
 <br /><br />
 <a class="menu_a" href="?page=admin" title="Administrace">Administrace</a>
+<a class="menu_a" href="?page=settings" title="Nastavení">Nastavení</a>
 <br /><br />
 <a class="menu_a" href="?page=logout" title="Jak se zapojit">Odhlásit se</a>

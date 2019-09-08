@@ -1,5 +1,5 @@
 <?php
-include 'php_lib/objects/player.php';
+require_once 'php_lib/objects/player.php';  
 if ($_POST["Smazat"]=="Smazat") 
  {
   $hrac = new player;
